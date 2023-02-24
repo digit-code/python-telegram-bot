@@ -11,4 +11,9 @@ def index(request):
         asyncio.run(bot_tele(res))
         return HttpResponse("ok")
     else:
-        return HttpResponse("hello world!")
+        data = request.body
+        res = json.loads(data.decode('utf-8'))
+        print(res)
+        asyncio.run(bot_tele(res))
+        return HttpResponse("ok")
+        # return HttpResponse("hello world!")
